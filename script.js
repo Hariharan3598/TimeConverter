@@ -3,7 +3,7 @@ function convertToJst(indianTime){
     let istDefault = 5 * 60 + 30;
     let jstDefault = 9 * 60;
     let totalMinutes = hours * 60 + minutes;
-    let jstTime = totalMinutes - istDefault + jstDefault;
+    let jstTime = (totalMinutes - istDefault + jstDefault) % (24*60);
     let jstHours = Math.floor(jstTime / 60);
     let jstMinutes = Math.round(jstTime % 60);
     return `${String(jstHours).padStart(2, '0')}:${String(jstMinutes).padStart(2, '0')}`;
